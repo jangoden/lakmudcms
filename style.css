@@ -1,0 +1,194 @@
+/* ================================================
+  LAKMUD PC IPNU IPPNU Ciamis - Custom Stylesheet
+================================================
+*/
+
+/* Konfigurasi Variabel Warna Sesuai Tailwind Config */
+:root {
+    --nu-green: #006633;
+    --nu-green-dark: #004d26;
+    --nu-yellow: #facc15;
+    --gray-200: #e5e7eb;
+    --gray-400: #9ca3af;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --white: #ffffff;
+    --green-100: #d1fae5;
+    --green-200: #a7f3d0;
+}
+
+/* ===== 0. Global & Navigation Fix ===== */
+/* Perbaikan agar header tidak menutupi judul section saat navigasi */
+html {
+    scroll-padding-top: 80px; /* Sesuaikan dengan tinggi header (h-20) */
+}
+
+/* ===== 1. Latar Belakang Animasi ===== */
+body.animated-green-bg {
+    background: linear-gradient(-45deg, #f0fdf4, #e0f2f1, #d1fae5, #f0fdf4);
+    background-size: 400% 400%;
+    animation: green-bg-animation 15s ease infinite;
+}
+
+@keyframes green-bg-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== 2. Animasi Teks untuk Judul Utama ===== */
+.animate-gradient-text {
+  background: linear-gradient(270deg, #006633, #10b981, #facc15, #006633);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-move 8s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== 3. Navigasi Aktif ===== */
+.nav-link.active-nav {
+    color: var(--nu-green);
+    font-weight: 700;
+    position: relative;
+}
+
+.nav-link.active-nav::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 3px;
+    background-color: var(--nu-green);
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* ===== 4. Gaya untuk Bagian Term of Reference (TOR) & Details ===== */
+.canvas-container {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    margin-top: -2rem; 
+}
+
+/* Terapkan ke semua canvas partikel */
+.particles-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #e0f2f1;
+}
+
+.content-overlay {
+    position: relative;
+    z-index: 2;
+    padding: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.info-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid rgba(0, 102, 51, 0.1);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    height: 100%;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.info-card h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--nu-green-dark);
+    background: linear-gradient(45deg, var(--nu-green), #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+}
+
+.info-card p, .info-card li, .info-card td, .info-card th {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gray-700);
+}
+
+.info-card ol li, .info-card ul li {
+    display: flex;
+    align-items: flex-start;
+}
+
+.info-card ol i, .info-card ul i {
+    margin-right: 0.75rem;
+    margin-top: 0.35rem;
+    color: var(--nu-green);
+}
+
+.price-tag {
+    background-color: var(--green-100);
+    color: var(--nu-green-dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* ===== 5. Gaya untuk Bagian Penutup ===== */
+.closing-section {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--nu-green-dark);
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0),
+        radial-gradient(circle at 15px 15px, rgba(255,255,255,0.1) 1px, transparent 0);
+    background-size: 30px 30px;
+    color: var(--gray-200);
+    border-radius: 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.closing-section h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.arabic-text {
+    font-family: 'Scheherazade New', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--nu-yellow);
+    line-height: 1.5;
+}
+
+/* ===== 6. Latar Belakang Footer ===== */
+.footer-bg-pattern {
+    background-color: var(--gray-800);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
